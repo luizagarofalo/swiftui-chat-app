@@ -35,6 +35,10 @@ struct ChatView: View {
             
             InputView(viewModel: viewModel)
         }
+        .background(
+            LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.05), Color.white]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+        )
     }
 }
 
@@ -90,26 +94,70 @@ struct MessageView: View {
 
 struct InputView: View {
     @ObservedObject var viewModel: ChatViewModel
+    @State private var isEditing = false
     @State private var message = ""
     
     var body: some View {
         HStack {
-            TextField("Ask me anything", text: $message)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.horizontal)
+            ChatTextField(
+                placeholder: "Ask me anything",
+                text: $message,
+                isEditing: $isEditing
+            )
+            .frame(height: 40)
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(100)
+            .padding(.horizontal)
             
             Button(action: sendMessage) {
                 Text("Send")
                     .foregroundColor(.blue)
                     .padding(.horizontal)
             }
+            .disabled(message.isEmpty)
         }
-        .padding(.vertical)
     }
     
     private func sendMessage() {
         viewModel.send(message)
         message = ""
+        isEditing = false
+    }
+}
+
+struct ChatTextField: View {
+    var placeholder: String
+    @Binding var text: String
+    @Binding var isEditing: Bool
+    
+    private let iconSize: CGFloat = 17
+    
+    var body: some View {
+        HStack {
+            if text.isEmpty && !isEditing {
+                Image(systemName: "sparkles")
+                    .font(.system(size: iconSize))
+                    .foregroundColor(.gray)
+                    .padding(.leading, 16)
+                    .transition(.opacity)
+            }
+            
+            TextField(placeholder, text: $text) { editing in
+                withAnimation(.easeInOut(duration: 0.2)) {
+                    isEditing = editing
+                }
+            }
+            .textFieldStyle(PlainTextFieldStyle())
+            .padding(.horizontal, isEditing ? 16 : 0)
+            
+            if text.isEmpty && !isEditing {
+                Image(systemName: "mic")
+                    .font(.system(size: iconSize))
+                    .foregroundColor(.black.opacity(0.6))
+                    .padding(.trailing, 16)
+                    .transition(.opacity)
+            }
+        }
     }
 }
 
