@@ -18,6 +18,7 @@
 		250DDD512A54D1A20086E5A7 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DDD502A54D1A20086E5A7 /* ChatViewModel.swift */; };
 		250DDD532A54D36E0086E5A7 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DDD522A54D36E0086E5A7 /* ChatService.swift */; };
 		250DDD552A54E3F70086E5A7 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DDD542A54E3F70086E5A7 /* RoundedCorner.swift */; };
+		250DDD592A5523F30086E5A7 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DDD582A5523F30086E5A7 /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		250DDD502A54D1A20086E5A7 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		250DDD522A54D36E0086E5A7 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		250DDD542A54E3F70086E5A7 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		250DDD582A5523F30086E5A7 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				250DDD542A54E3F70086E5A7 /* RoundedCorner.swift */,
+				250DDD582A5523F30086E5A7 /* View+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				250DDD4D2A54C9D40086E5A7 /* ChatView.swift in Sources */,
 				250DDD532A54D36E0086E5A7 /* ChatService.swift in Sources */,
 				250DDD512A54D1A20086E5A7 /* ChatViewModel.swift in Sources */,
+				250DDD592A5523F30086E5A7 /* View+Extension.swift in Sources */,
 				250DDD232A54C71B0086E5A7 /* swiftui_chat_appApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

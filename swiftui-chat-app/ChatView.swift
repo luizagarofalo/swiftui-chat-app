@@ -107,21 +107,24 @@ struct InputView: View {
             .frame(height: 40)
             .background(Color.gray.opacity(0.1))
             .cornerRadius(100)
-            .padding(.horizontal)
             
-            Button(action: sendMessage) {
-                Text("Send")
-                    .foregroundColor(.blue)
-                    .padding(.horizontal)
+            if isEditing {
+                Button(action: sendMessage) {
+                    Image(systemName: "arrow.up.circle.fill")
+                        .font(.system(size: 40))
+                        .foregroundColor(.blue)
+                }
             }
-            .disabled(message.isEmpty)
         }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
     }
     
     private func sendMessage() {
         viewModel.send(message)
         message = ""
         isEditing = false
+        hideKeyboard()
     }
 }
 
