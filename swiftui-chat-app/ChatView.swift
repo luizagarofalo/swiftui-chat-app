@@ -17,7 +17,22 @@ struct ChatView: View {
     var body: some View {
         VStack {
             HeaderView()
-            Spacer()
+            
+            ScrollViewReader { proxy in
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(viewModel.messages) { message in
+                            MessageView(message: message)
+                                .id(message.id)
+                        }
+                    }
+                    .padding()
+                    .onChange(of: viewModel.messages) { _ in
+                        proxy.scrollTo(viewModel.messages.last?.id)
+                    }
+                }
+            }
+            
             InputView(viewModel: viewModel)
         }
     }
@@ -48,6 +63,31 @@ struct HeaderView: View {
     }
 }
 
+struct MessageView: View {
+    var message: Message
+    
+    var body: some View {
+        HStack {
+            if message.sender == .user {
+                Spacer()
+            }
+            
+            Text(message.content)
+                .padding()
+                .font(.system(size: 17))
+                .foregroundColor(message.sender == .user ? Color.white : Color.black)
+                .background(message.sender == .user ? Color.blue.opacity(0.7) : Color.blue.opacity(0.05))
+                .cornerRadius(10, corners: message.sender == .user
+                              ? [.topLeft, .topRight, .bottomLeft]
+                              : [.topLeft, .topRight, .bottomRight])
+            
+            if message.sender == .ai {
+                Spacer()
+            }
+        }
+    }
+}
+
 struct InputView: View {
     @ObservedObject var viewModel: ChatViewModel
     @State private var message = ""
@@ -70,5 +110,12 @@ struct InputView: View {
     private func sendMessage() {
         viewModel.send(message)
         message = ""
+    }
+}
+
+struct ChatView_Previews: PreviewProvider {
+    static var previews: some View {
+        let service = MockChatService()
+        ChatView(viewModel: ChatViewModel(service: service))
     }
 }

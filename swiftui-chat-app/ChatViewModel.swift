@@ -10,5 +10,20 @@ import Foundation
 class ChatViewModel: ObservableObject {
     @Published var messages: [Message] = []
     
-    func send(_ message: String) {}
+    private let service: ChatServiceProtocol
+    
+    init(service: ChatServiceProtocol) {
+        self.service = service
+    }
+        
+    func send(_ message: String) {
+        service.sendMessage(message) { [weak self] result in
+            switch result {
+            case .success(let messages):
+                self?.messages = messages
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
 }

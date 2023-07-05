@@ -11,7 +11,8 @@ import SwiftUI
 struct swiftui_chat_appApp: App {
     var body: some Scene {
         WindowGroup {
-            ChatView(viewModel: ChatViewModel())
+            let service = MockChatService()
+            ChatView(viewModel: ChatViewModel(service: service))
         }
     }
 }
