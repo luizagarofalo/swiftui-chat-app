@@ -10,14 +10,14 @@ import SwiftUI
 struct CustomTextField: View {
     var placeholder: String
     @Binding var text: String
-    @Binding var isEditing: Bool
-    @Binding var isRecording: Bool
+    @ObservedObject var viewModel: ChatViewModel
+    @FocusState var focusedTextField: Bool
     
     private let iconSize: CGFloat = 17
     
     var body: some View {
         HStack {
-            if text.isEmpty && !isEditing {
+            if text.isEmpty && !focusedTextField {
                 Image(systemName: "sparkles")
                     .font(.system(size: iconSize))
                     .foregroundColor(.gray)
@@ -27,21 +27,28 @@ struct CustomTextField: View {
             
             TextField(placeholder, text: $text) { editing in
                 withAnimation(.easeInOut(duration: 0.2)) {
-                    isEditing = editing
+                    viewModel.isEditing = editing
                 }
             }
-            .textFieldStyle(PlainTextFieldStyle())
-            .padding(.horizontal, isEditing ? 16 : 0)
-            .disabled(isRecording)
+            .padding(.horizontal, viewModel.isEditing || !text.isEmpty ? 16 : 0)
+            .disabled(viewModel.isRecording)
+            .focused($focusedTextField)
+            .onReceive(viewModel.$transcriptedMessage) { transcriptedMessage in
+                if let transcriptedMessage = transcriptedMessage {
+                    focusedTextField = true
+                    text = transcriptedMessage
+                    viewModel.isEditing = true
+                }
+            }
             
-            if text.isEmpty && !isEditing {
+            if text.isEmpty && !focusedTextField {
                 Image(systemName: "mic")
                     .font(.system(size: iconSize))
                     .foregroundColor(.black.opacity(0.6))
                     .padding(.trailing, 16)
                     .transition(.opacity)
                     .onTapGesture {
-                        isRecording = true
+                        viewModel.startRecording()
                     }
             }
         }

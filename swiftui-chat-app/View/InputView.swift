@@ -9,8 +9,6 @@ import SwiftUI
 
 struct InputView: View {
     @ObservedObject var viewModel: ChatViewModel
-    @State private var isEditing = false
-    @State private var isRecording = false
     @State private var message = ""
     
     var body: some View {
@@ -18,14 +16,13 @@ struct InputView: View {
             CustomTextField(
                 placeholder: "Ask me anything",
                 text: $message,
-                isEditing: $isEditing,
-                isRecording: $isRecording
+                viewModel: viewModel
             )
             .frame(height: 40)
             .background(Color.gray.opacity(0.1))
             .cornerRadius(100)
             
-            if isEditing || isRecording {
+            if viewModel.isEditing || viewModel.isRecording {
                 Button(action: sendMessage) {
                     Image(systemName: "arrow.up.circle.fill")
                         .font(.system(size: 40))
@@ -36,7 +33,7 @@ struct InputView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
         
-        if isRecording {
+        if viewModel.isRecording {
             ZStack {
                 Rectangle()
                     .fill(Color.blue)
@@ -51,7 +48,7 @@ struct InputView: View {
                     .foregroundColor(.white)
                     .font(.headline)
                     .onTapGesture {
-                        stopRecording()
+                        viewModel.stopRecording()
                     }
             }
         }
@@ -59,13 +56,9 @@ struct InputView: View {
     
     private func sendMessage() {
         viewModel.send(message)
+        viewModel.isEditing = false
         message = ""
-        isEditing = false
         hideKeyboard()
-    }
-    
-    private func stopRecording() {
-        isRecording = false
     }
 }
 

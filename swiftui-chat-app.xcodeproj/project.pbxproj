@@ -22,6 +22,7 @@
 		255650D62A58B11D001D4CF5 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255650D52A58B11D001D4CF5 /* HeaderView.swift */; };
 		255650D82A58B155001D4CF5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255650D72A58B155001D4CF5 /* InputView.swift */; };
 		255650DA2A58B1C2001D4CF5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255650D92A58B1C1001D4CF5 /* CustomTextField.swift */; };
+		255650DC2A58D079001D4CF5 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255650DB2A58D079001D4CF5 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		255650D52A58B11D001D4CF5 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		255650D72A58B155001D4CF5 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		255650D92A58B1C1001D4CF5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		255650DB2A58D079001D4CF5 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			children = (
 				250DDD542A54E3F70086E5A7 /* RoundedCorner.swift */,
 				250DDD582A5523F30086E5A7 /* View+Extension.swift */,
+				255650DB2A58D079001D4CF5 /* Date+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				250DDD552A54E3F70086E5A7 /* RoundedCorner.swift in Sources */,
+				255650DC2A58D079001D4CF5 /* Date+Extension.swift in Sources */,
 				250DDD4F2A54CEBA0086E5A7 /* Message.swift in Sources */,
 				250DDD4D2A54C9D40086E5A7 /* ChatView.swift in Sources */,
 				250DDD532A54D36E0086E5A7 /* ChatService.swift in Sources */,
@@ -500,6 +504,7 @@
 				DEVELOPMENT_TEAM = 6QHK889TTD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need microphone access for uploading audio.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -529,6 +534,7 @@
 				DEVELOPMENT_TEAM = 6QHK889TTD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need microphone access for uploading audio.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
