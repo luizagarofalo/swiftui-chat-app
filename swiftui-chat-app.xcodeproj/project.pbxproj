@@ -19,6 +19,9 @@
 		250DDD532A54D36E0086E5A7 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DDD522A54D36E0086E5A7 /* ChatService.swift */; };
 		250DDD552A54E3F70086E5A7 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DDD542A54E3F70086E5A7 /* RoundedCorner.swift */; };
 		250DDD592A5523F30086E5A7 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DDD582A5523F30086E5A7 /* View+Extension.swift */; };
+		255650D62A58B11D001D4CF5 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255650D52A58B11D001D4CF5 /* HeaderView.swift */; };
+		255650D82A58B155001D4CF5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255650D72A58B155001D4CF5 /* InputView.swift */; };
+		255650DA2A58B1C2001D4CF5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255650D92A58B1C1001D4CF5 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		250DDD522A54D36E0086E5A7 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		250DDD542A54E3F70086E5A7 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		250DDD582A5523F30086E5A7 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		255650D52A58B11D001D4CF5 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		255650D72A58B155001D4CF5 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		255650D92A58B1C1001D4CF5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,12 +110,12 @@
 		250DDD212A54C71B0086E5A7 /* swiftui-chat-app */ = {
 			isa = PBXGroup;
 			children = (
-				250DDD222A54C71B0086E5A7 /* swiftui_chat_appApp.swift */,
-				250DDD522A54D36E0086E5A7 /* ChatService.swift */,
-				250DDD4C2A54C9D40086E5A7 /* ChatView.swift */,
-				250DDD502A54D1A20086E5A7 /* ChatViewModel.swift */,
-				250DDD4E2A54CEBA0086E5A7 /* Message.swift */,
 				250DDD562A54FDB00086E5A7 /* Common */,
+				255650D32A58B0E6001D4CF5 /* Model */,
+				255650D42A58B0F8001D4CF5 /* Service */,
+				255650D12A58B0CE001D4CF5 /* View */,
+				255650D22A58B0D4001D4CF5 /* ViewModel */,
+				250DDD222A54C71B0086E5A7 /* swiftui_chat_appApp.swift */,
 				250DDD572A54FDF40086E5A7 /* Supporting Files */,
 				250DDD282A54C71E0086E5A7 /* Preview Content */,
 			);
@@ -156,6 +162,41 @@
 				250DDD262A54C71E0086E5A7 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		255650D12A58B0CE001D4CF5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				250DDD4C2A54C9D40086E5A7 /* ChatView.swift */,
+				255650D92A58B1C1001D4CF5 /* CustomTextField.swift */,
+				255650D52A58B11D001D4CF5 /* HeaderView.swift */,
+				255650D72A58B155001D4CF5 /* InputView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		255650D22A58B0D4001D4CF5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				250DDD502A54D1A20086E5A7 /* ChatViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		255650D32A58B0E6001D4CF5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				250DDD4E2A54CEBA0086E5A7 /* Message.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		255650D42A58B0F8001D4CF5 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				250DDD522A54D36E0086E5A7 /* ChatService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,7 +335,10 @@
 				250DDD532A54D36E0086E5A7 /* ChatService.swift in Sources */,
 				250DDD512A54D1A20086E5A7 /* ChatViewModel.swift in Sources */,
 				250DDD592A5523F30086E5A7 /* View+Extension.swift in Sources */,
+				255650D82A58B155001D4CF5 /* InputView.swift in Sources */,
 				250DDD232A54C71B0086E5A7 /* swiftui_chat_appApp.swift in Sources */,
+				255650D62A58B11D001D4CF5 /* HeaderView.swift in Sources */,
+				255650DA2A58B1C2001D4CF5 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
