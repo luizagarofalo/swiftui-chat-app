@@ -13,6 +13,7 @@ class ChatViewModel: ObservableObject {
     @Published var currentAudioLevel: Float = 0.0
     @Published var isEditing: Bool = false
     @Published var isRecording: Bool = false
+    @Published var isSending: Bool = false
     @Published var messages: [Message] = []
     @Published var transcriptedMessage: String?
     
@@ -26,13 +27,19 @@ class ChatViewModel: ObservableObject {
     }
     
     func send(_ message: String) {
+        isSending = true
         service.sendMessage(message) { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .success(let messages):
-                self?.messages = messages
+                self.messages = messages
             case .failure(let error):
                 print("Error: \(error)")
             }
+            
+            self.isEditing = false
+            self.isSending = false
         }
     }
     

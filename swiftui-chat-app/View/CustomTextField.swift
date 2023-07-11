@@ -40,6 +40,11 @@ struct CustomTextField: View {
                     viewModel.isEditing = true
                 }
             }
+            .onReceive(viewModel.$isEditing) { isEditing in
+                if !isEditing {
+                    hideKeyboard()
+                }
+            }
             
             if text.isEmpty && !focusedTextField {
                 Image(systemName: "mic")

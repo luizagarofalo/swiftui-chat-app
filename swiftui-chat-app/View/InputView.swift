@@ -23,10 +23,15 @@ struct InputView: View {
             .cornerRadius(100)
             
             if viewModel.isEditing || viewModel.isRecording {
-                Button(action: sendMessage) {
-                    Image(systemName: "arrow.up.circle.fill")
-                        .font(.system(size: 40))
-                        .foregroundColor(.blue)
+                if viewModel.isSending {
+                    ProgressView()
+                        .padding(.horizontal, 8)
+                } else {
+                    Button(action: sendMessage) {
+                        Image(systemName: "arrow.up.circle.fill")
+                            .font(.system(size: 40))
+                            .foregroundColor(.blue)
+                    }
                 }
             }
         }
@@ -34,25 +39,7 @@ struct InputView: View {
         .padding(.vertical, 8)
         
         if viewModel.isRecording {
-            ZStack {
-                Rectangle()
-                    .fill(Color.blue)
-                    .frame(height: 200)
-                VStack {
-                    Circle()
-                        .fill(Color.black.opacity(0.1))
-                        .frame(width: calculateCircleDimension(viewModel.currentAudioLevel * 200),
-                               height: calculateCircleDimension(viewModel.currentAudioLevel * 200))
-                        .animation(.easeInOut, value: viewModel.currentAudioLevel)
-                        .padding()
-                }
-                Text("Tap to stop recording")
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .onTapGesture {
-                        viewModel.stopRecording()
-                    }
-            }
+            recordingView()
         }
     }
     
@@ -61,11 +48,31 @@ struct InputView: View {
         return max(clampedValue, 80)
     }
     
+    private func recordingView() -> some View {
+        ZStack {
+            Rectangle()
+                .fill(Color.blue)
+                .frame(height: 200)
+            VStack {
+                Circle()
+                    .fill(Color.black.opacity(0.1))
+                    .frame(width: calculateCircleDimension(viewModel.currentAudioLevel * 200),
+                           height: calculateCircleDimension(viewModel.currentAudioLevel * 200))
+                    .animation(.easeInOut, value: viewModel.currentAudioLevel)
+                    .padding()
+            }
+            Text("Tap to stop recording")
+                .foregroundColor(.white)
+                .font(.headline)
+                .onTapGesture {
+                    viewModel.stopRecording()
+                }
+        }
+    }
+    
     private func sendMessage() {
         viewModel.send(message)
-        viewModel.isEditing = false
         message = ""
-        hideKeyboard()
     }
 }
 
