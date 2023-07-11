@@ -41,7 +41,9 @@ struct InputView: View {
                 VStack {
                     Circle()
                         .fill(Color.black.opacity(0.1))
-                        .frame(width: 80, height: 80)
+                        .frame(width: calculateCircleDimension(viewModel.currentAudioLevel * 200),
+                               height: calculateCircleDimension(viewModel.currentAudioLevel * 200))
+                        .animation(.easeInOut, value: viewModel.currentAudioLevel)
                         .padding()
                 }
                 Text("Tap to stop recording")
@@ -52,6 +54,11 @@ struct InputView: View {
                     }
             }
         }
+    }
+    
+    private func calculateCircleDimension(_ value: Float) -> CGFloat {
+        let clampedValue = CGFloat(min(max(value, 0), 160))
+        return max(clampedValue, 80)
     }
     
     private func sendMessage() {
