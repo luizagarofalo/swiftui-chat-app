@@ -1,7 +1,7 @@
 # swiftui-chat-app
 A messaging app that enables users to engage in conversations with an AI assistant, built with SwiftUI.
 
-![swiftui-chat-app](https://github.com/luizagarofalo/swiftui-chat-app/assets/12313246/e76113fa-458d-4e84-bfef-f4ee1acf9767)
+![swiftui-chat-app](https://github.com/luizagarofalo/swiftui-chat-app/assets/12313246/ee78e480-5165-4bb1-902f-328682eba869)
 
 ## Getting started
 - Clone this repository and open the project in Xcode.
