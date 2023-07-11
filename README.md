@@ -6,7 +6,7 @@ A messaging app that enables users to engage in conversations with an AI assista
 ## Getting started
 - Clone this repository and open the project in Xcode.
 ```
-git clone https://github.com/your-username/chat-app.git
+git clone https://github.com/luizagarofalo/swiftui-chat-app.git
 ```
 
 - Replace the URL and endpoints in the `ChatService` class with the actual API endpoints you will be using. If you don't have an API, you can use the `MockChatService` class provided to simulate the API calls.
