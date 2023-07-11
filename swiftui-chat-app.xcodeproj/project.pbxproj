@@ -24,6 +24,7 @@
 		255650DC2A58D079001D4CF5 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255650DB2A58D079001D4CF5 /* Date+Extension.swift */; };
 		255650DE2A5CE401001D4CF5 /* ChatViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255650DD2A5CE401001D4CF5 /* ChatViewModelTests.swift */; };
 		255650E02A5CEA28001D4CF5 /* MockChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255650DF2A5CEA28001D4CF5 /* MockChatService.swift */; };
+		255650E42A5CEFD5001D4CF5 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255650E32A5CEFD5001D4CF5 /* CustomError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		255650DB2A58D079001D4CF5 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		255650DD2A5CE401001D4CF5 /* ChatViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelTests.swift; sourceTree = "<group>"; };
 		255650DF2A5CEA28001D4CF5 /* MockChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockChatService.swift; sourceTree = "<group>"; };
+		255650E32A5CEFD5001D4CF5 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				250DDD522A54D36E0086E5A7 /* ChatService.swift */,
+				255650E32A5CEFD5001D4CF5 /* CustomError.swift */,
 				255650DF2A5CEA28001D4CF5 /* MockChatService.swift */,
 			);
 			path = Service;
@@ -337,6 +340,7 @@
 			files = (
 				250DDD552A54E3F70086E5A7 /* RoundedCorner.swift in Sources */,
 				255650DC2A58D079001D4CF5 /* Date+Extension.swift in Sources */,
+				255650E42A5CEFD5001D4CF5 /* CustomError.swift in Sources */,
 				250DDD4F2A54CEBA0086E5A7 /* Message.swift in Sources */,
 				250DDD4D2A54C9D40086E5A7 /* ChatView.swift in Sources */,
 				250DDD532A54D36E0086E5A7 /* ChatService.swift in Sources */,
@@ -514,6 +518,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -544,6 +549,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Message: Identifiable, Equatable {
-    let id = UUID()
+struct Message: Codable, Equatable, Identifiable {
+    var id = UUID()
     let content: String
     let sender: Sender
     
@@ -18,7 +18,7 @@ struct Message: Identifiable, Equatable {
 }
 
 extension Message {
-    enum Sender {
+    enum Sender: Codable {
         case user
         case ai
     }

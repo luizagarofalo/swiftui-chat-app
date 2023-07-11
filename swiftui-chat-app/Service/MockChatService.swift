@@ -10,7 +10,7 @@ import Foundation
 class MockChatService: ChatServiceProtocol {
     private var chatHistory: [Message] = []
     
-    func sendMessage(_ message: String, completion: @escaping (Result<[Message], Error>) -> Void) {
+    func sendMessage(_ message: String, completion: @escaping (Result<[Message], CustomError>) -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let response = self.generateMockResponse(for: message)
             self.updateChatHistory(with: response)
