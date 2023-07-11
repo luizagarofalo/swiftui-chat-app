@@ -56,7 +56,7 @@ final class ChatViewModelTests: XCTestCase {
         guard
             let audioRecorder = chatViewModel.audioRecorder,
             let audioLevelTimer = chatViewModel.audioLevelTimer else {
-            return
+            return XCTFail("Start recording failed")
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
