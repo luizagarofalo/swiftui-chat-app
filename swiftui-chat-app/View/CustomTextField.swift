@@ -50,7 +50,7 @@ struct CustomTextField: View {
     
     private func textField() -> some View {
         TextField(placeholder, text: $text) { editing in
-            withAnimation(.easeInOut(duration: 0.2)) {
+            withAnimation(.easeInOut) {
                 viewModel.isEditing = editing
             }
         }

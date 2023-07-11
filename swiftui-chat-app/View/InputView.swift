@@ -44,15 +44,15 @@ struct InputView: View {
     }
     
     private func calculateCircleDimension(_ value: Float) -> CGFloat {
-        let clampedValue = CGFloat(min(max(value, 0), 160))
-        return max(clampedValue, 80)
+        let clampedValue = CGFloat(min(max(value, 0), 240))
+        return max(clampedValue, 120)
     }
     
     private func recordingView() -> some View {
         ZStack {
             Rectangle()
                 .fill(Color.blue)
-                .frame(height: 200)
+                .frame(height: 300)
             VStack {
                 Circle()
                     .fill(Color.black.opacity(0.1))
